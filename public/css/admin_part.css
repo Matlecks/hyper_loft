@@ -1,0 +1,919 @@
+/* Левое меню */
+
+.left_menu_navigation {
+    background: #313a46;
+    width: 18%;
+    /* padding: ; */
+}
+
+.admin_part_logo_container {
+    height: 78px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.admin_part_logo {
+    height: 22px;
+    width: 103px;
+    /* object-fit: cover; */
+}
+
+#accordion_nav {
+    padding-left: 10px;
+}
+
+#accordion_nav li {
+    padding: 15px 10px 15px 10px;
+    color: rgb(131, 145, 162);
+    font-family: 'Nunito', sans-serif;
+    font-size: 15px;
+    font-weight: 400;
+    line-height: 22.5px;
+    list-style-type: none;
+    /* text-transform: uppercase; */
+}
+
+#accordion_nav li li {}
+
+/* Рабочая область */
+
+
+
+/* Содержание рабочей области */
+
+.work_area {
+    background: #F8FAFDFF;
+    padding: 0 .75rem;
+}
+
+/* Верхнее меню */
+
+.admin_part_top_nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 70px;
+    box-shadow: 0px 0px 35px 0px #9AA1AB96;
+    background: #fff;
+}
+
+.admin_part_top_nav_left_part {
+    display: flex;
+    align-items: center;
+    height: 100%;
+}
+
+.admin_part_search {
+    display: flex;
+    align-items: center;
+    height: 38px;
+    background: #F0F3F8FF;
+    padding-left: 10px;
+    border-radius: 4px;
+    margin-left: 30px;
+}
+
+.admin_part_search_img_container {
+    border-radius: 2.4px 0px 0px 2.4px;
+}
+
+.admin_part_search_input {
+    border: none;
+    background: #F0F3F8FF;
+    margin-left: 10px;
+}
+
+.admin_part_search_btn {
+    height: 100%;
+    width: 75px;
+    border: none;
+    border-radius: 0px 2.4px 2.4px 0px;
+    color: #fff;
+    background: #727CF5FF;
+    font-family: "Nunito", sans-serif;
+    font-size: 14.4px;
+    font-weight: 400;
+    line-height: 21.6px;
+    box-shadow: 0px 2px 6px 0px #727CF5FF;
+    margin-left: 19px;
+}
+
+.admin_part_search_btn:hover {
+    background: #6973e3;
+}
+
+.admin_part_top_nav_right_part {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 100%;
+}
+
+.admin_part_login_user {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 100%;
+    width: 43%;
+    border-left: 1px solid #EEF2F7FF;
+    background: #FAFAFDFF;
+    padding: 0px 12px 0px 12px;
+}
+
+.admin_part_login_user_avatar_container {
+    height: 32px;
+    width: 32px;
+    border-radius: 50%;
+    margin-right: 12px;
+    flex-shrink: 0;
+}
+
+.admin_part_login_user_avatar {
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+    border-radius: 50%;
+}
+
+.admin_part_login_user_info {
+    display: flex;
+    flex-wrap: wrap;
+    color: #6C757DFF;
+    font-family: 'Nunito', sans-serif;
+}
+
+/* Title и хлеб крошки админ части */
+.admin_part_title_breadcrumps_container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0px 25px 0px 25px;
+}
+
+.admin_part_title {
+    color: #6C757DFF;
+    font-family: "Nunito", sans-serif;
+    font-size: 18px;
+    font-weight: 700;
+    line-height: 75px;
+    text-transform: capitalize;
+
+}
+
+.admin_part_breadcrumps {
+    color: #6C757DFF;
+    font-family: "Nunito", sans-serif;
+    font-size: 14.4px;
+    font-weight: 400;
+    line-height: 21.6px
+}
+
+.admin_part_breadcrumps_delimiter {
+    margin: 0px 5px 0px 5px;
+}
+
+.admin_part_breadcrumps_point {
+    color: #727CF5FF;
+}
+
+.admin_part_breadcrumps_point_final {}
+
+/* Контейнер таблиц и другой инфо */
+
+.admin_part_info_container {
+    padding-top: 1.5rem;
+    margin: 0px 25px 0px 25px;
+    /* box-shadow: 0px 0px 35px 0px #9AA1AB96; */
+    background: #fff;
+    border-radius: 0.25rem;
+}
+
+.admin_part_info_btns {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-left: 25px;
+    padding-right: 25px;
+}
+
+.admin_part_add_btn {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: #FA5C7CFF;
+    padding: 0.45rem 0.9rem 0.45rem 0.9rem;
+    border: none;
+    color: #fff;
+    border-radius: 0.15rem;
+    box-shadow: 0px 2px 6px 0px #FB749064;
+}
+
+.admin_part_info_btns_right_part {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+}
+
+.admin_part_table_settings_btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    /* height: 15px;
+    width:  22px; */
+    background: #0ACF97FF;
+    color: #fff;
+    box-shadow: rgba(10, 207, 151, 0.5) 0px 2px 6px 0px;
+    border-radius: 2.4px;
+    padding: 0.7rem 0.9rem 0.7rem 0.9rem;
+    text-decoration: none;
+    margin-right: 10px;
+    border: none;
+}
+
+.admin_part_table_import_export {
+    background: #EEF2F7FF;
+    border-radius: 0.15rem;
+    font-family: "Nunito", sans-serif;
+    font-size: 14.4px;
+    font-weight: 400;
+    line-height: 21.6px;
+    margin-right: 10px;
+    border: none;
+    padding: 8px 15px 8px 15px;
+    text-decoration: none;
+    color: #000;
+}
+
+.admin_part_info_paginate_setting_search {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-left: 25px;
+    padding-right: 25px;
+    margin-top: 24px;
+    font-family: "Nunito", sans-serif;
+    font-size: 14.4px;
+    font-weight: 400;
+    line-height: 21.6px;
+    color: #6C757DFF;
+}
+
+.admin_part_info_paginate_setting_left_part {}
+
+.admin_part_info_paginate_setting_select {
+    height: 32px;
+    width: 75px;
+    padding-top: .28rem;
+    padding-bottom: .28rem;
+    padding-left: .8rem;
+    font-size: .875rem;
+    border-radius: .2rem;
+    margin: 0px 10px 0px 10px;
+    background: #fff;
+    border: 1px solid #dee2e6;
+}
+
+.admin_part_info_paginate_setting_right_part {
+    font-family: "Nunito", sans-serif;
+    font-size: 14.4px;
+    font-weight: 400;
+    line-height: 21.6px;
+    color: #6C757DFF;
+}
+
+.admin_part_info_search {
+    padding: .28rem .8rem;
+    font-size: .875rem;
+    border-radius: .2rem;
+    background: #fff;
+    border: 1px solid #dee2e6;
+    outline-offset: 0px;
+    outline: none;
+    color: #6C757DFF;
+}
+
+/* Контейнер таблиц */
+
+.admin_part_table_container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-left: 25px;
+    padding-right: 25px;
+    margin-top: 24px;
+    font-family: "Nunito", sans-serif;
+    font-size: 14.4px;
+    font-weight: 400;
+    line-height: 21.6px;
+    color: #6C757DFF;
+}
+
+/* .admin_part_table_container tr:first-child {
+    height: 58px !important;
+    flex-wrap: nowrap;
+    display: flex;
+    justify-content: space-between;
+} */
+
+/* .admin_part_table_container tr {
+    flex-wrap: nowrap;
+    display: flex;
+    justify-content: space-between;
+} */
+
+.admin_part_table_container td {
+    padding: 15px 15px 15px 0px;
+
+    text-align: left;
+}
+
+.admin_part_table_img_container {
+    height: 48px;
+    width: 38px;
+}
+
+.admin_part_table_img {
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+}
+
+/* Add page */
+
+.add_page_switcher {
+    display: flex;
+    justify-content: start;
+    height: 45px;
+    border-bottom: 2px solid #dee2e6;
+    list-style-type: none;
+    padding-left: 0px;
+}
+
+.add_page_switcher li {
+    padding: 10px 20px 10px 20px;
+}
+
+.add_page_switcher li.active {
+    border-bottom: 2px solid #727cf5;
+}
+
+.dropzone {
+    width: 300px;
+    min-height: 300px;
+    border: 2px dashed #ccc;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 20px 10px;
+}
+
+.dropzone_img_container {
+    display: flex;
+    justify-content: center;
+    width: 90%;
+    height: 90%;
+}
+
+.dropzone_img {
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: contain;
+}
+
+.admin_part_add_btn {
+    color: #fff;
+    background: #727CF5;
+    border: none;
+    border-radius: 0.15rem;
+    font-family: "Nunito", sans-serif;
+    font-size: 14.4px;
+    font-weight: 400;
+    line-height: 21.6px;
+    box-shadow: 0px 2px 6px 0px #727CF5FF;
+    margin-left: 19px;
+    padding: 0.45rem 0.9rem 0.45rem 0.9rem;
+}
+
+.admin_part_add_btn:hover {
+    background: #6973E3;
+}
+
+.admin_part_delete_btn {
+    color: #fa5c7c;
+    background: #fff;
+    border: 1px solid #fa5c7c;
+    border-radius: 0.15rem;
+    font-family: "Nunito", sans-serif;
+    font-size: 14.4px;
+    font-weight: 400;
+    line-height: 21.6px;
+    padding: 0.45rem 0.9rem 0.45rem 0.9rem;
+}
+
+.admin_part_delete_btn:hover {
+    color: #fff;
+    background: #fa5c7c;
+}
+
+.admin_part_add_page_publication_info {
+    position: fixed;
+    width: 18.7%;
+    border: 1px solid #DEE2E6;
+    border-radius: 0.15rem;
+}
+
+.publication_info_accordion {}
+
+.publication_info_accordion-header {
+    padding: 12px;
+    border-bottom: 1px solid #DEE2E6;
+    margin-bottom: 0px;
+}
+
+.publication_info_accordion-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 12px;
+    border-top: 1px solid #DEE2E6;
+}
+
+
+/* Modals */
+
+.admin_part_modal_table_settings {
+    padding: 1.5rem;
+    color: #91989E;
+    font-size: 14px;
+}
+
+.admin_part_modal-header {
+    padding: 1.5rem 1.5rem 0 1.5rem;
+    border-top-left-radius: 0.25rem;
+    border-top-right-radius: 0.25rem;
+}
+
+.admin_part_modal-title {
+    font-family: "Nunito", sans-serif;
+    font-size: 14.4px !important;
+    font-weight: 400;
+}
+
+.admin_part_modal-footer {
+    display: flex;
+    justify-content: space-between;
+    padding: 1.5rem;
+    border-bottom-left-radius: 0.25rem;
+    border-bottom-right-radius: 0.25rem;
+}
+
+.admin_part_modal_table_settings table {
+    width: 100%;
+    table-layout: fixed;
+    border-collapse: collapse;
+}
+
+.admin_part_modal_table_settings td {
+    padding: 10px;
+}
+
+.admin_part_modal_table_settings td:first-child {
+    width: 50px;
+}
+
+.admin_part_modal_table_settings td:not(:first-child):not(:last-child) {
+    text-align: start;
+}
+
+.admin_part_modal_table_settings td:last-child {
+    text-align: end;
+}
+
+.admin_part_modal_sort_input {
+    width: 50px;
+    padding: .28rem .8rem;
+    font-size: .875rem;
+    border-radius: .2rem;
+    background: #fff;
+    border: 1px solid #dee2e6;
+    outline-offset: 0px;
+    outline: none;
+    color: #6C757DFF;
+}
+
+.admin_part_default_settings_btn {
+    color: #fa5c7c;
+    background: #fff;
+    border: 1px solid #fa5c7c;
+    border-radius: 0.15rem;
+    font-family: "Nunito", sans-serif;
+    font-size: 14.4px;
+    font-weight: 400;
+    line-height: 21.6px;
+    padding: 0.45rem 0.9rem 0.45rem 0.9rem;
+}
+
+.admin_part_default_settings_btn:hover {
+    color: #fff;
+    background: #fa5c7c;
+}
+
+.admin_part_add_column {
+    margin-top: 20px;
+    border: 1px solid #DFDFDF;
+    border-radius: 0.5rem;
+    padding: 0px 1rem;
+}
+
+.admin_part_add_column_select {
+    height: 32px;
+    width: 100%;
+    padding-top: .28rem;
+    padding-bottom: .28rem;
+    padding-left: .8rem;
+    font-size: .875rem;
+    border-radius: .2rem;
+    background: #fff;
+    border: 1px solid #dee2e6;
+}
+
+
+
+#imageInfo {
+    margin-top: 10px;
+    display: flex;
+    align-items: center;
+}
+
+#fileIcon {
+    margin-right: 5px;
+}
+
+#fileName {
+    font-weight: bold;
+}
+
+
+.admin_part_img_card {
+    padding: 1.5rem 1.5rem;
+    height: fit-content;
+    background: #fff;
+    border-radius: 4px;
+    box-shadow: rgba(154, 161, 171, 0.15) 0px 0px 35px 0px;
+    display: flex;
+}
+
+.admin_part_img_card_img_container {
+    height: 132px;
+    width: 198px;
+    border-radius: 4px 4px 0 0;
+}
+
+.admin_part_img_card_img {
+    height: 100%;
+    width: 100%;
+    border-radius: 4px 0 0 4px;
+    object-fit: cover;
+}
+
+.admin_part_img_card_title {
+    color: rgb(108, 117, 125);
+    font-family: Nunito,
+        sans-serif;
+    font-size: 14.976px;
+    font-weight: 700;
+    line-height: 16.4667px;
+    margin-bottom: 12px
+}
+
+.admin_part_img_card_img_delete_btn {
+    color: #fa5c7c;
+    background: #fff;
+    border: 1px solid #fa5c7c;
+    border-radius: 0.15rem;
+    font-family: "Nunito", sans-serif;
+    font-size: 14.4px;
+    font-weight: 400;
+    line-height: 21.6px;
+    padding: 0.45rem 0.9rem 0.45rem 0.9rem;
+}
+
+.img_cards_container {
+    background: #FAFBFE;
+    border-radius: 4px;
+    padding: 33px 30px 30px;
+    margin-left: 50px;
+    border: 1px solid #ccc;
+    width: 61%;
+}
+
+
+.admin_part_mail_menu {
+    width: 30%;
+    border-right: 5px solid #F2F4F8;
+    padding: 0rem 2rem;
+}
+
+.admin_part_mail_menu ul {
+    list-style-type: none;
+    padding-left: 0px;
+}
+
+.admin_part_mail_menu li {
+    padding: 12px 5px;
+}
+
+.admin_part_mail_menu a {
+    color: #6C757D;
+    text-decoration: none;
+    display: flex;
+    justify-content: space-between;
+}
+
+.admin_part_mail_menu a:hover {
+    color: #313539;
+}
+
+.admin_part_mail_menu a.active {
+    color: #e75573;
+}
+
+.admin_part_mail_menu span.count {
+    font-size: 11.25px;
+    font-weight: 700;
+    line-height: 11.25px;
+    border-radius: 0.25rem;
+    background: #EBF7FA;
+    padding: 0.25rem 0.4em;
+    color: #39AFD1;
+}
+
+.admin_part_mail_menu span.count.active {
+    font-size: 11.25px;
+    font-weight: 700;
+    line-height: 11.25px;
+    border-radius: 0.25rem;
+    background: #FFEFF2;
+    padding: 0.4em 0.25rem;
+    color: #CD5C7C;
+}
+
+.admin_part_compose_btn {
+    width: 100%;
+    background: #fa5c7c;
+    border: none;
+    border-radius: 2.4px;
+    color: #fff;
+    padding: ;
+    box-shadow: rgba(250, 92, 124, 0.5) 0px 2px 6px 0px;
+    font-family: Nunito, sans-serif;
+    font-size: 14.4px;
+    font-weight: 400;
+    line-height: 21.6px;
+    padding: 0.45rem 0.9rem;
+    margin-bottom: 1rem;
+}
+
+.admin_part_compose_btn:hover {
+    background: #e75573;
+}
+
+.admin_part_mail_right_part {
+    width: 100%;
+}
+
+.admin_part_mail_btns_group {
+    display: flex;
+    justify-content: space-between;
+    padding: 0rem 1.5rem;
+    width: 38%;
+}
+
+.admin_part_mail_btn {
+    background: #6C757D;
+    border-radius: 0.15rem;
+    padding: 0.45rem 0.9rem;
+    box-shadow: rgba(108, 117, 125, 0.5) 0px 2px 6px 0px;
+    color: #fff;
+    border: none;
+    transition: background 0.3s ease;
+}
+
+.admin_part_mail_btn:hover {
+    background: #646C74;
+}
+
+.admin_part_mail_btns_group .group .admin_part_mail_btn {
+    border-radius: 0rem;
+}
+
+.admin_part_mail_btns_group .group .admin_part_mail_btn:first-child {
+    border-top-left-radius: 0.15rem;
+    border-bottom-left-radius: 0.15rem;
+}
+
+.admin_part_mail_btns_group .group .admin_part_mail_btn:last-child {
+    border-top-right-radius: 0.15rem;
+    border-bottom-right-radius: 0.15rem;
+}
+
+.mail-table {
+    padding-left: 1.5rem;
+    flex-shrink: 0;
+    display: flex;
+    justify-content: space-between;
+    width: auto;
+    margin-right: 1.5rem;
+    margin-left: 1.5rem;
+    margin-top: 1.5rem;
+}
+
+.mail-table tr {
+    height: 51px;
+    width: 100%;
+    display: inline-table;
+    /* inline-table */
+}
+
+.mail-table tr:hover {
+    background: #F6F7FB;
+}
+
+/* .mail-table tr td:last-child {
+    position: absolute;
+    z-index: 2;
+    color: #313A46;
+    background: #f6f7fb;
+    width: 100%;
+    height: 100%;
+    display: none;
+} */
+
+.mail-table tr td:last-child {
+    position: absolute;
+    z-index: 2;
+    color: #313A46;
+    background: #f6f7fb;
+    width: 100%;
+    height: 100%;
+    display: none;
+    transition: transform 3s ease;
+    transform: translateX(100%);
+}
+
+.mail-table tr td:last-child div {
+    display: flex;
+    height: inherit;
+    align-items: center;
+}
+
+.mail-table form {
+    display: flex;
+    align-items: center;
+    margin: 0px;
+}
+
+.mail-table tr td:last-child span {
+    padding: 5px;
+    display: flex;
+    align-items: center;
+    height: 100%;
+}
+
+.mail-table-message {
+    max-width: 280px;
+    padding-right: 10px;
+}
+
+.mail-action-btn {
+    border: none;
+    background: none;
+    color: #313A46;
+    transition: color 0.3s ease;
+}
+
+.mail-action-btn:hover {
+    border: none;
+    background: none;
+    color: #e75573;
+}
+
+.dropdown-menu li button {
+    color: #6c757d;
+    font-size: 14.4px;
+    font-weight: 400;
+    line-height: 21.6px
+}
+
+.dropdown-menu span {
+    color: #6c757d;
+    font-size: 14.4px;
+    font-weight: 400;
+    line-height: 21.6px
+}
+
+.compose_modal-header {
+    padding: 1rem;
+    border-top-right-radius: 3.8px;
+    border-top-left-radius: 3.8px;
+}
+
+.compose_modal-title {
+    color: #fff;
+    font-size: 18px;
+    font-weight: 400;
+    line-height: 27px;
+}
+
+.compose_modal-form label {
+    font-size: 14.4px;
+    font-weight: 600;
+    color: #6C757D;
+}
+
+.compose_modal-form input {
+    font-size: 14.4px;
+    font-weight: 400;
+    line-height: 21.6px;
+    border-radius: .25rem;
+}
+
+
+.compose_modal-form textarea {
+    color: #6C757D;
+    font-weight: 400;
+    line-height: 21.6px;
+    font-size: 14.4px
+}
+
+.compose_modal-send-btn {
+    color: #fff;
+    background: #727CF5;
+    border: none;
+    border-radius: 0.15rem;
+    font-family: "Nunito", sans-serif;
+    font-size: 14.4px;
+    font-weight: 400;
+    line-height: 21.6px;
+    box-shadow: 0px 2px 6px 0px #727CF5FF;
+    margin-left: 19px;
+    padding: 0.45rem 0.9rem 0.45rem 0.9rem;
+}
+
+.compose_modal-send-btn:hover {
+    background: #6973E3;
+}
+
+.compose_modal-cancel-btn {
+    color: #313539;
+    background: #EEF2F7;
+    border: none;
+    border-radius: 0.15rem;
+    font-family: "Nunito", sans-serif;
+    font-size: 14.4px;
+    font-weight: 400;
+    line-height: 21.6px;
+    margin-left: 19px;
+    padding: 0.45rem 0.9rem 0.45rem 0.9rem;
+}
+
+.compose_modal-cancel-btn:hover {
+    background: #f6f7fb;
+}
+
+/* .mail-table tr:hover td:last-child {
+  position: relative;
+  transform: translateX(-5%);
+  transition: transform 1s ease;
+  display: block;
+} */
+
+.mail-table tr:hover td:last-child {
+    position: relative;
+    transform: translateX(0);
+    transition: transform 1s ease;
+    display: block;
+}
+
+.labels a {
+    display: flex;
+    justify-content: start;
+    align-items: center;
+}
+
+.labels span {
+    width: 13px;
+    height: 13px;
+    border-radius: 50%;
+    margin-right: 12px;
+}
+
+.admin_part_modal_table_settings .import_modal_form {
+    padding-left: 24px;
+    padding-right: 24px;
+}
+
+/* s */

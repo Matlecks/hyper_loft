@@ -1,0 +1,426 @@
+.user thead form {
+    margin-bottom: 0px;
+}
+
+.user thead span {
+    color: #6C757D;
+    font-family: "Nunito", sans-serif;
+    font-size: 14.4px;
+    font-weight: 700;
+    line-height: 21.6px
+}
+
+.user thead a {
+    color: #6C757D;
+    font-family: "Nunito", sans-serif;
+    font-size: 14.4px;
+    font-weight: 700;
+    line-height: 21.6px;
+    text-decoration: none;
+}
+
+.user tbody tr:hover {
+    background: #F6F7FB;
+}
+
+.user tbody td:first-child {
+    padding-top: 1.5%;
+    width: 58px !important;
+    padding-left: 2%;
+}
+
+.user tbody td {
+    width: 150px;
+    color: #6C757D;
+    font-size: 14.4px;
+    font-weight: 400;
+    line-height: 21.6px
+}
+
+.user tbody .name_column {
+    font-weight: 600;
+    display: flex;
+    justify-content: start;
+    gap: 12px;
+    width: auto;
+    align-items: center;
+}
+
+.user tbody .name_column .img-container {
+    width: 30px;
+    height: 30px;
+    border-radius: 50% !important;
+    display: contents;
+}
+
+.user tbody .name_column img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    border-radius: 50% !important;
+}
+
+.user tbody .name_column span:first-child {
+    width: 30px;
+    height: 30px;
+    object-fit: contain;
+    border-radius: 50% !important;
+    background: #ccc;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.user tbody .name_column a {
+    color: #6C757D;
+    text-decoration: none;
+}
+
+.user tbody td:last-child {
+    padding-top: 2%;
+    padding-right: 5px;
+    max-width: 36px !important;
+}
+
+.user_container {
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
+}
+
+.user_main_block {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    padding: 1.5rem 1.5rem;
+    background: #727CF5;
+    border-radius: 0.25rem;
+}
+
+.user_main_block .first_part {}
+
+.user_main_block .first_part .img_container {
+    height: 6rem;
+    width: 6rem;
+    border-radius: 50% !important;
+    border: 5px solid #FAFBFE;
+}
+
+.user_main_block .first_part .img_container img {
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+    border-radius: 50% !important;
+}
+
+.user_main_block .left_part {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: start;
+}
+
+.user_main_block .second_part {
+    margin-left: 1.5rem;
+}
+
+.user_main_block .second_part .title {
+    font-size: 18px;
+    font-weight: 700;
+    line-height: 19.8px;
+    color: #fff;
+    margin-bottom: 5px;
+    font-family: "Nunito", sans-serif;
+}
+
+.user_main_block .second_part .text {
+    font-size: 13px;
+    font-weight: 400;
+    line-height: 19.5px;
+    color: rgba(255, 255, 255, .5) !important;
+}
+
+.user_main_block .second_part .second_info {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1.5rem;
+}
+
+.user_main_block .theard_part {
+    display: flex;
+    justify-content: end;
+    align-items: start;
+}
+
+.user_main_block .theard_part a {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: #EEF2F7;
+    padding: 0.45rem 0.9rem;
+    box-shadow: rgba(238, 242, 247, 0.5) 0px 2px 6px 0px;
+    border-radius: 2.4px;
+    color: #313A46;
+    font-size: 14.4px;
+    font-weight: 400;
+    line-height: 21.6px;
+    gap: 8px;
+    text-decoration: none;
+    border: 0.8px solid #eef2f7;
+}
+
+.user_other_info_container {
+    margin-top: 24px;
+    padding-left: 24px;
+    padding-right: 24px;
+    display: flex;
+}
+
+.card {
+    border: none;
+    padding: 1.5rem;
+}
+
+.header-title {
+    font-family: "Nunito", sans-serif;
+    color: #6C757D;
+    font-size: 14.4px;
+    letter-spacing: 0.288px;
+    line-height: 15.8333px;
+    border: none;
+    font-weight: 700;
+}
+
+.card .text {
+    font-size: 13px;
+    font-weight: 400;
+    line-height: 19.5px;
+    color: #90979D;
+}
+
+.card strong {
+    color: #90979D;
+    font-size: 14.4px;
+    font-weight: 700;
+    line-height: 21.6px;
+    font-family: "Nunito", sans-serif;
+}
+
+.card span {
+    color: #90979D;
+    font-size: 14.4px;
+    font-weight: 400;
+    line-height: 21.6px
+}
+
+.phone_container {
+    padding: 1.5rem;
+    background: #39AFD1;
+    border-radius: 0.25rem;
+    margin-top: 24px;
+}
+
+.phone_container p {
+    text-align: center;
+    margin-bottom: 0px;
+}
+
+.phone_container span {
+    font-size: 18px;
+    font-weight: 700;
+    line-height: 19.8px;
+    color: #fff;
+    font-family: "Nunito", sans-serif;
+}
+
+.phone_container span:last-child {
+    font-weight: 400;
+}
+
+.messages_container {
+    padding: 1.5rem;
+    border-radius: 0.25rem;
+    margin-top: 24px;
+    background: #fff;
+}
+
+.messages_container .header-title {}
+
+.messages_container .line {
+    display: flex;
+    border-bottom: 1px solid #DEE2E6;
+    padding: .625rem 0;
+}
+
+.messages_container div:last-child {}
+
+.messages_container .link {
+    font-size: 13px;
+    font-weight: 400;
+    line-height: 19.5px;
+    color: #39AFD1;
+    text-decoration: none;
+}
+
+.messages_container .img-container {
+    width: 40px;
+    height: 40px;
+    border-radius: 50% !important;
+    display: contents;
+}
+
+.messages_container .img-container span {
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+    border-radius: 50% !important;
+}
+
+.messages_container .img-container span {
+    width: 40px;
+    height: 40px;
+    object-fit: contain;
+    border-radius: 50% !important;
+    background: #ccc;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.messages_container .content div {
+    padding-left: 10px;
+    width: 100%;
+}
+
+.messages_container .content {
+    display: flex;
+    align-items: center;
+    width: 78%;
+}
+
+.messages_container .title {
+    font-size: 14.4px;
+    font-weight: 600;
+    line-height: 21.6px;
+    color: #313539;
+    margin-bottom: 3px;
+    width: fit-content;
+    font-family: "Nunito", sans-serif;
+}
+
+.messages_container .text {
+    font-size: 13px;
+    font-weight: 400;
+    line-height: 19.5px;
+    color: #A1A9B1;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    width: 80%;
+    margin-bottom: 0px;
+    font-family: "Nunito", sans-serif;
+}
+
+.graphic_container {
+    padding: 1.5rem;
+    border-radius: 0.25rem;
+    background: #fff;
+    min-height: 345px;
+}
+
+.statistic_container {
+    display: flex;
+    justify-content: space-between;
+    gap: 1.5rem;
+    margin-top: 1.5rem;
+}
+
+.statistic_container .stat_block {
+    padding: 1.5rem;
+    border-radius: 0.25rem;
+    background: #fff;
+    min-height: 136px;
+    width: 100%;
+}
+
+.statistic_container .top_part {
+    display: flex;
+
+}
+
+.statistic_container .stat_block .top_part .left_part {
+    width: 50%;
+}
+
+.statistic_container .top_part .title {
+    font-size: 12.24px;
+    font-weight: 600;
+    line-height: 13.4667px;
+    color: #90979D;
+    margin: 0px;
+}
+
+.statistic_container .top_part .text {
+    font-family: "Nunito", sans-serif;
+    font-size: 29.952px;
+    font-weight: 700;
+    line-height: 32.95px;
+    color: #6C757D;
+    margin-bottom: 10px;
+    margin-top: 10px;
+}
+
+.statistic_container .stat_block .top_part .right_part {
+    width: 100%;
+    display: flex;
+    justify-content: end;
+}
+
+.statistic_container .bottom_part .discount {
+    font-size: 10.8px;
+    font-weight: 700;
+    line-height: 10.8px;
+    color: #fff;
+    background: #727CF5;
+    padding: 0.25em 0.4em;
+    border-radius: 0.25rem;
+    margin-right: 5px;
+}
+
+.statistic_container .bottom_part .text {
+    font-size: 14.4px;
+    font-weight: 400;
+    line-height: 21.6px;
+    color: #90979D;
+}
+
+.products_container {
+    padding: 1.5rem;
+    border-radius: 0.25rem;
+    background: #fff;
+    min-height: 136px;
+    width: 100%;
+    margin-top: 1.5rem;
+}
+
+.products_container thead th {
+    font-size: 14.4px;
+    font-weight: 600;
+    line-height: 21.6px;
+    color: #90979D;
+}
+
+.products_container tbody td {
+    font-size: 14.4px;
+    font-weight: 400;
+    line-height: 21.6px;
+    color: #90979D;
+}
+
+.products_container tbody td:first-child {
+    font-size: 14.4px;
+    font-weight: 600;
+    line-height: 21.6px;
+    color: #90979D;
+}
+
+
+/*  */
