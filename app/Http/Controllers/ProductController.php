@@ -13,6 +13,7 @@ use App\Models\ProductShop;
 use App\Models\ProductCategory;
 use Illuminate\Support\Facades\Schema;
 use App\Exports\ProductsExport;
+use App\Models\Profile;
 use Maatwebsite\Excel\Facades\Excel;
 
 class ProductController extends Controller
@@ -355,11 +356,16 @@ class ProductController extends Controller
         return Excel::download(new ProductsExport, 'products.xlsx');
     }
 
-    public function import(Request $request)
+    public function import(Request $request, $id)
     {
-        $import = new ProductsImport();
 
-        Excel::import($import, $request->file/* file('file') */, null, \Maatwebsite\Excel\Excel::XLSX);
+        $profile = Profile::find($id);
+        /* dd($profile); */
+        $import = new ProductsImport();
+        $import->withData($profile);
+        /* dd($import); */
+
+        Excel::import($import, "/$profile->file", null, \Maatwebsite\Excel\Excel::XLSX);
 
         /* $failures = $import->failures();
 

@@ -194,6 +194,7 @@ class AdminMenusSeeder extends Seeder
             'id' => 19,
             'title' => 'Import/Export',
             'simbol_code' => 'import_export',
+            'link' => '/admin/services/profiles/index_profiles',
             'img' => '',
             'parent_id' => 6,
         ]);

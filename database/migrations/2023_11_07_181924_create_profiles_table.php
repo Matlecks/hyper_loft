@@ -11,12 +11,14 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('import_profiles', function (Blueprint $table) {
+        Schema::create('profiles', function (Blueprint $table) {
             $table->id();
-            $table->string('name');
-            $table->string('table');
-            $table->text('settings');
-            $table->text('default_settings');
+            $table->string('name')->nullable();
+            $table->text('file')->nullable();
+            $table->string('table')->nullable();
+            $table->string('identificator')->nullable();
+            $table->text('settings')->nullable();
+            $table->text('default_settings')->nullable();
             $table->timestamps();
         });
     }
@@ -26,6 +28,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('import_profiles');
+        Schema::dropIfExists('profiles');
     }
 };

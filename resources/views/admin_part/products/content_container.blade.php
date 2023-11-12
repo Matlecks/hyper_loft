@@ -433,7 +433,7 @@
                         In this window you have the opportunity to configure the import of the product table. According to
                         your needs. </p>
                 </div>
-                <form class="import_modal_form" action="{{ route('products_import') }}" method="POST"
+                <form class="import_modal_form" action="{{-- {{ route('products_import') }} --}}" method="POST"
                     enctype="multipart/form-data">
 
                     @csrf
