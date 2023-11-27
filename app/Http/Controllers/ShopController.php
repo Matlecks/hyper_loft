@@ -44,7 +44,7 @@ class ShopController extends Controller
         $admin_menu_points = Admin_Menu::where('parent_id', '=', 1)->get();
         $all_categories = Catalog_Category::where('parent_id', '!=', 0)->get();
 
-        return view('admin_part.content_container', compact('inactive_columns', 'columns', 'shops', 'admin_menu_points', 'page_title', 'table_name', 'all_categories'));
+        return view('admin_part.shops.content_container', compact('inactive_columns', 'columns', 'shops', 'admin_menu_points', 'page_title', 'table_name', 'all_categories'));
     }/* admin_part.tables.shop_table */
 
     public function sort_shops(Request $request) // сортирует магазины

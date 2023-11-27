@@ -14,6 +14,7 @@ use App\Models\ProductCategory;
 use Illuminate\Support\Facades\Schema;
 use App\Exports\ProductsExport;
 use App\Models\Profile;
+use Illuminate\Support\Facades\Storage;
 use Maatwebsite\Excel\Facades\Excel;
 
 class ProductController extends Controller
@@ -21,26 +22,15 @@ class ProductController extends Controller
     public function index_products() // общая страница товаров
     {
         $page_title = 'Product';
-        $table_name = 'products';
-
-        $active_inactive_columns = Product::getActiveAndInactiveColumns();
-        $active_columns = $active_inactive_columns['active_columns'];
-        $inactive_columns = $active_inactive_columns['inactive_columns'];
-        $columns = $active_inactive_columns['columns'];
 
         $products = Product::with('categories')->get();
         $shops = Shop::all();
 
         $admin_menu_points = Admin_Menu::where('parent_id', '=', 1)->get();
-        $catalog_categories = Catalog_Category::where('parent_id', '=', 1)->get();
         $all_categories = Catalog_Category::where('parent_id', '!=', 0)->get();
         $identificators = Schema::getColumnListing('products');
 
-
-        /* $product = Product::find(5);
-        dd($product->categories()->all()); */
-
-        return view('admin_part.products.content_container', compact('all_categories', 'inactive_columns', 'columns', 'shops', 'products', 'admin_menu_points', 'catalog_categories', 'page_title', 'table_name', 'identificators'));
+        return view('admin_part.products.content_container', compact('all_categories', 'shops', 'products', 'admin_menu_points', 'page_title', 'identificators'));
     }
 
     public function filter_products(Request $request) // фильтрует товары на общей странице товаров
@@ -50,11 +40,6 @@ class ProductController extends Controller
         $status = $request->input('status');
 
         $page_title = 'Product';
-        $table_name = 'products';
-        $active_inactive_columns = Product::getActiveAndInactiveColumns();
-        $active_columns = $active_inactive_columns['active_columns'];
-        $inactive_columns = $active_inactive_columns['inactive_columns'];
-        $columns = $active_inactive_columns['columns'];
         $shops = Shop::all();
         $all_categories = Catalog_Category::where('parent_id', '!=', 0)->get();
         $admin_menu_points = Admin_Menu::where('parent_id', '=', 1)->get();
@@ -117,7 +102,7 @@ class ProductController extends Controller
             }
         }
 
-        return view('admin_part.products.content_container', compact('products', 'page_title', 'columns', 'table_name', 'inactive_columns', 'shops', 'all_categories', 'admin_menu_points'));
+        return view('admin_part.products.content_container', compact('products', 'page_title', 'shops', 'all_categories', 'admin_menu_points'));
     }
 
     public function sort_products(Request $request) // сортирует товары
@@ -146,19 +131,6 @@ class ProductController extends Controller
                 ->orderBy($collumnName, $sortValue)
                 ->get();
         }
-
-        $table_name = 'products';
-        $tableSetting = TableSetting::where('table_name', $table_name)->first();
-
-        if ($tableSetting->settings === '{}') {
-            $columns = json_decode($tableSetting->default)->data;
-        } else {
-            $columns = json_decode($tableSetting->settings)->data;
-        }
-
-        usort($columns, function ($a, $b) {
-            return $a->sort - $b->sort;
-        });
 
         $page_title = 'Product';
         $admin_menu_points = Admin_Menu::where('parent_id', '=', 1)->get();
@@ -190,7 +162,6 @@ class ProductController extends Controller
                 'admin_menu_points' => $admin_menu_points,
                 'catalog_categories' => $catalog_categories,
                 'page_title' => $page_title,
-                'columns' => $columns,
             ])->render()
         ]);
     }
@@ -203,11 +174,6 @@ class ProductController extends Controller
     {
         $page_title = 'Add Product';
         $table_name = 'products';
-
-        /* $active_inactive_columns = Product::getActiveAndInactiveColumns();
-        $active_columns = $active_inactive_columns['active_columns'];
-        $inactive_columns = $active_inactive_columns['inactive_columns'];
-        $columns = $active_inactive_columns['columns']; */
 
         $categories = Catalog_Category::all();
 
@@ -237,43 +203,21 @@ class ProductController extends Controller
         }
 
         $product->detail_text = ($request->detail_text);
-        /* $product->seo_title = ($request->title); */
-        /* $product->seo_description = ($request->title); */
-        /* $product->status = ($request->title); */
-        /* dd($detailImgNames); */
 
         $product->save();
 
         $category = Catalog_Category::where('symbolic_code', '=', $request->category)->first();
         $product->categories()->attach($category);
 
-        $table_name = 'products';
 
-        $tableSetting = TableSetting::where('table_name', $table_name)->first();
-        if ($tableSetting->settings === '{}') {
-            $columns = json_decode($tableSetting->default)->data;
-        } else {
-            $columns = json_decode($tableSetting->settings)->data;
-        }
-        $all_default_columns = json_decode($tableSetting->default)->data;
-
-        usort($columns, function ($a, $b) {
-            return $a->sort - $b->sort;
-        });
-
-        return redirect()->route('index_product_table', 'columns');
+        return redirect()->route('index_product_table');
     }
 
     public function edit_products($id) // страница редактирования товара
     {
         $page_title = 'Edit Product';
-        $table_name = 'products';
 
         $product = Product::find($id);
-        /* $active_inactive_columns = Product::getActiveAndInactiveColumns();
-        $active_columns = $active_inactive_columns['active_columns'];
-        $inactive_columns = $active_inactive_columns['inactive_columns'];
-        $columns = $active_inactive_columns['columns']; */
 
         $categories = Catalog_Category::all();
         $selected_categories_from_pivot = ProductCategory::where('product_id', '=', $id)->get();
@@ -290,7 +234,6 @@ class ProductController extends Controller
         $selected_shops = $shops->diff($inactive_shops);
 
         $product->detail_img = json_decode($product->detail_img);
-        /* dd($product->detail_img); */
 
         $admin_menu_points = Admin_Menu::where('parent_id', '=', 1)->get();
         return view('admin_part.products.edit_page', compact('page_title', 'admin_menu_points', 'shops', 'selected_shops', 'inactive_shops', 'categories', 'selected_categories', 'inactive_categories', 'product', 'shops'));
@@ -324,10 +267,7 @@ class ProductController extends Controller
         $product->save();
 
         $category = Catalog_Category::where('symbolic_code', '=', $request->category)->first();
-        /* $product->categories()->attach($category); */
 
-        /* dd($request->shop); */
-        /* dd($request->category); */
         $product->shops()->sync($request->shop);
         $product->categories()->sync($request->category);
         $table_name = 'products';
@@ -360,10 +300,43 @@ class ProductController extends Controller
     {
 
         $profile = Profile::find($id);
-        /* dd($profile); */
+
         $import = new ProductsImport();
         $import->withData($profile);
-        /* dd($import); */
+
+        $file = $profile->file;
+        $path = "/$file";
+
+        // Получаем содержимое файла
+        $contents = Storage::get($path);
+
+        // Читаем файл Excel
+        $excel_strings = Excel::toArray(new ProductsImport, $path)[0];
+
+        $excel_strings = array_filter($excel_strings[0], function ($value) {
+            return $value !== null;
+        });
+
+        $result = [];
+        $for_map = [];
+        $settings = json_decode($profile->settings, true);
+
+        foreach ($settings as $key => $value) {
+            $index = array_search($value, $excel_strings);
+            $result[$key] = $index !== false ? $index : null;
+        }
+
+        $i = 0;
+        foreach ($result as $key => $index) {
+            $for_map[$i] = $index;
+            $i++;
+
+            /*             Log::info('в for_map[' . $i . '] (' . $key . ') получаем index = ' . $index);
+ */
+        }
+
+        $profile->default_settings = $for_map;
+        $profile->save();
 
         Excel::import($import, "/$profile->file", null, \Maatwebsite\Excel\Excel::XLSX);
 

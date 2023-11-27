@@ -39,7 +39,7 @@
                     </svg>
                 </button>
                 <ul class="dropdown-menu">
-                    <li><a class="dropdown-item" href="{{-- {{ route('edit_profiles', $profile->id) }} --}}">Edit</a></li>
+                    <li><a class="dropdown-item" href="{{ route('create_profile_with_file', $profile->id) }}">Edit</a></li>
                     <li><a class="dropdown-item" href="#">Delete</a></li>
                     <li><form action="{{ route('products_import', $profile->id) }}" method="POST">@csrf<button type="submit">asdsadsadsad</button></form></li>
                 </ul>

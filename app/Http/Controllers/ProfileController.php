@@ -130,8 +130,7 @@ class ProfileController extends Controller
         $profile->name = $request->title;
         $profile->table = $request->tables;
         $profile->identificator = $request->identificator;
-        /* $profile->status = "status";
-        $profile->category = "outbox"; */
+        $profile->settings = "{}";
 
         if ($request->file) {
             $profile->file = $request->file->storeAs('/', $request->file->getClientOriginalName(), 'public');
@@ -148,16 +147,20 @@ class ProfileController extends Controller
 
     public function update_profile(Request $request, $id) // обновить профиль
     {
+
+        /* dd($request); */
         $jsonArray = [];
         foreach ($request->all() as $key => $value) {
             if (strpos($key, 'column_name_') !== false) {
                 $index = substr($key, strlen('column_name_'));
                 $headerKey = 'column_header_' . $index;
+                $transformKey = 'column_transform_type_' . $index;
+                /* dd($transformKey); */
                 $jsonArray[$value] = $request->input($headerKey);
             }
         }
         $jsonData = json_encode($jsonArray, JSON_UNESCAPED_UNICODE);
-
+/* dd($jsonData); */
         $profile = Profile::find($id);
 
         $profile->settings = $jsonData;

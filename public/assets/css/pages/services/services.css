@@ -1,6 +1,8 @@
 /* profiles */
 .import_table {
     overflow-x: scroll;
+    height: 300px;
+    overflow-y: hidden;
 }
 
 .import_table thead tr th {
@@ -57,4 +59,5 @@
 .admin_part_modal_content {
     padding: 1.5rem;
 }
+
 /* end profiles */

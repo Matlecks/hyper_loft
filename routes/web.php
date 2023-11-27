@@ -6,6 +6,7 @@ use App\Http\Controllers\ShopController;
 use App\Http\Controllers\TableSettingsController;
 use App\Http\Controllers\MailController;
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\SearchController;
 use App\Http\Controllers\UserController;
 
 /*
@@ -113,7 +114,7 @@ Route::group(['prefix' => 'admin'/* , 'middleware' => 'auth' */], function () {
             Route::post('/sort_products', [ProductController::class, 'sort_products'])->name('sort_products'); // сортирует товары
 
             Route::get('/show_product', [ProductController::class, 'show_product'])->name('show_product'); // детальная страница товара
- */
+                */
             Route::get('/create_profile', [ProfileController::class, 'create_profile'])->name('create_profile'); // страница добавления товара
 
             Route::get('/create_profile_with_file_{id}', [ProfileController::class, 'create_profile_with_file'])->name('create_profile_with_file'); // страница добавления товара
@@ -127,7 +128,7 @@ Route::group(['prefix' => 'admin'/* , 'middleware' => 'auth' */], function () {
             Route::post('/store_profile', [ProfileController::class, 'store_profile'])->name('store_profile'); // добавить товар
 
             /*             Route::get('/edit_products_{id}', [ProductController::class, 'edit_products'])->name('edit_products'); // страница редактирования товара
- */
+            */
             Route::post('/update_profile_{id}', [ProfileController::class, 'update_profile'])->name('update_profile'); // обновить товар
 
             /*             Route::delete('/delete_product', [ProductController::class, 'delete_product'])->name('delete_product'); // soft deletes (мягкое) удаление товара
@@ -139,7 +140,19 @@ Route::group(['prefix' => 'admin'/* , 'middleware' => 'auth' */], function () {
             Route::get('/export', [ProductController::class, 'export'])->name('products_export');
 
             Route::post('/import', [ProductController::class, 'import'])->name('products_import');
- */
+                */
         });
+    });
+    Route::group(['prefix' => 'search'], function () {
+
+        Route::get('/index_search', [SearchController::class, 'index_search'])->name('index_search'); // страница в настрйоках для переиндексации и настройки поиска по админке
+
+        Route::post('/store_setting_search', [SearchController::class, 'store_setting_search'])->name('store_setting_search'); // добавить настройку поиска в бд
+
+        Route::post('/update_setting_search_{id}', [SearchController::class, 'update_setting_search'])->name('update_setting_search'); // обновить настройку поиска
+
+        Route::post('/reindex_admin_search_{name_reindex_form}', [SearchController::class, 'reindex_admin_search'])->name('reindex_admin_search'); // обновить настройку поиска
+
+
     });
 });

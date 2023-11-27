@@ -235,6 +235,7 @@ class AdminMenusSeeder extends Seeder
             'id' => 24,
             'title' => 'Search',
             'simbol_code' => 'search',
+            'link' => '/admin/search/index_search',
             'img' => '',
             'parent_id' => 8,
         ]);

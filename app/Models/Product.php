@@ -11,6 +11,19 @@ class Product extends Model
     use HasFactory, SoftDeletes;
 
     protected $table = 'products';
+    protected $fillable = [
+        'title',
+        'symbolic_code',
+        'anounce_img',
+        'anounce_text',
+        'detail_img',
+        'detail_text',
+        'seo_title',
+        'seo_description',
+        'status',
+        'user_id',
+    ];
+
 
     public function categories()
     {

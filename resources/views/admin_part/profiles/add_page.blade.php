@@ -27,10 +27,24 @@
                 <div class="mb-3">
                     <label for="formFile" class="form-label">Import file</label>
                     @if (!empty($profile))
-                        <input class="form-control" type="file" id="import_file" name="file"
-                            value="{{ $profile->file }}">
+                        <div class="d-flex">
+                            <input class="form-control w-25" type="file" id="import_file" name="file"
+                                value="{{ $profile->file }}">
+                            <div class="d-flex align-items-center ms-3">
+                                <span>
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22"
+                                        fill="currentColor" class="bi bi-paperclip" viewBox="0 0 16 16">
+                                        <path
+                                            d="M4.5 3a2.5 2.5 0 0 1 5 0v9a1.5 1.5 0 0 1-3 0V5a.5.5 0 0 1 1 0v7a.5.5 0 0 0 1 0V3a1.5 1.5 0 1 0-3 0v9a2.5 2.5 0 0 0 5 0V5a.5.5 0 0 1 1 0v7a3.5 3.5 0 1 1-7 0V3z" />
+                                    </svg>
+                                </span>
+                                <span>
+                                    {{ $profile->file }}
+                                </span>
+                            </div>
+                        </div>
                     @else
-                        <input class="form-control" type="file" id="import_file" name="file">
+                        <input class="form-control w-25" type="file" id="import_file" name="file">
                     @endif
                 </div>
 
@@ -186,15 +200,29 @@
 
 
 
+        @if (!empty($profile))
+            @php
+                $settings = $profile->settings;
 
+                $settingsArray = json_decode($settings, true);
+
+                $changed_column = [];
+
+                foreach ($settingsArray as $index => $value) {
+                    $changed_column[] = $index;
+                }
+
+                /* dd($changed_column); */
+
+            @endphp
+        @endif
 
 
         @if (!empty($excel_strings))
             @foreach ($excel_strings[0] as $key => $headers)
                 {{-- show --}}
                 <div class="modal fade admin_part_modal_table_settings " id="import_settings_{{ $key }}"
-                    tabindex="-1" aria-labelledby="exampleModalLabel" {{-- style="display: block;" --}} aria-modal="true"
-                    role="dialog">
+                    tabindex="-1" aria-labelledby="exampleModalLabel" aria-modal="true" role="dialog">
                     <div class="modal-dialog modal-dialog-centered">
                         <div class="modal-content">
                             <div class="admin_part_modal-header" style="border: none;">
@@ -212,12 +240,29 @@
                                     value="{{ $headers }}">
                                 <select class="admin_part_add_column_select d-flex flex-column"
                                     name="column_name_{{ $key }}">
+
+                                    @if (!empty($changed_column[$key]))
+                                        <option value="{{ $changed_column[$key] }}" selected>{{ $changed_column[$key] }}
+                                        </option>
+                                    @endif
+
+                                    <option value="none">None</option>
                                     @foreach ($columns_orig as $column)
                                         <option class="w-100 d-flex justify-content-start" value="{{ $column }}">
                                             {{ $column }}
                                         </option>
                                     @endforeach
                                 </select>
+                                <label class="form-check-label d-flex justify-content-between mt-3" for="firstCheckbox">
+                                    Transformation data type</label>
+                                <select class="admin_part_add_column_select d-flex flex-column"
+                                    name="column_transform_type_{{ $key }}">
+                                    <option value="none">None</option>
+                                    <option value="string">String</option>
+                                    <option value="integer">Integer</option>
+                                    <option value="json">JSON</option>
+                                </select>
+
                             </div>
                             <div class="admin_part_modal-footer">
                                 <button class="admin_part_add_btn" type="button" data-bs-dismiss="modal"

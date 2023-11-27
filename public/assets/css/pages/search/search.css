@@ -1,0 +1,63 @@
+.indexstion_container {
+    background: #F2F4F8FF;
+    border-radius: 0.25rem;
+    padding: 1.5rem;
+    min-height: 300px;
+    width: 100%;
+}
+
+.indexstion_container .text {
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 21px;
+    font-family: "Nunito", sans-serif;
+}
+
+.indexsation_btn {
+    color: #fff;
+    background: #727CF5;
+    border: none;
+    border-radius: 0.15rem;
+    font-family: "Nunito", sans-serif;
+    font-size: 14.4px;
+    font-weight: 400;
+    line-height: 21.6px;
+    box-shadow: 0px 2px 6px 0px #727CF5FF;
+    padding: 0.45rem 0.9rem 0.45rem 0.9rem;
+}
+
+.tabs_container {}
+
+.tab {}
+
+.indexation_form {
+    /* display: none; */
+}
+
+.indexation_form_wrapper {
+    position: relative;
+}
+
+.reindex_form {
+    width: fit-content;
+    height: fit-content;
+    margin: 0px;
+    position: absolute;
+    top: 91%;
+    left: 14%;
+}
+
+.reindex_btn {
+    color: #fff;
+    background: #727CF5;
+    border: none;
+    border-radius: 0.15rem;
+    font-family: "Nunito", sans-serif;
+    font-size: 14.4px;
+    font-weight: 400;
+    line-height: 21.6px;
+    box-shadow: 0px 2px 6px 0px #727CF5FF;
+    padding: 0.45rem 0.9rem 0.45rem 0.9rem;
+}
+
+/*  */
