@@ -8,7 +8,7 @@
             <li id="seo">Seo</li>
             <li id="og">Open Graph</li>
         </ul>
-        <form action="{{ route('create_product') }}" method="POST" enctype="multipart/form-data" class="row">
+        <form action="{{ route('store_product') }}" method="POST" enctype="multipart/form-data" class="row">
             @csrf
             <div class="col-lg-9">
                 <div class="tab_content" id="anounce">

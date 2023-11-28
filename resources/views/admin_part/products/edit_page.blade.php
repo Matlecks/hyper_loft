@@ -8,7 +8,8 @@
             <li id="seo">Seo</li>
             <li id="og">Open Graph</li>
         </ul>
-        <form action="{{ route('update_product' , $product->id ) }}" method="POST" enctype="multipart/form-data" class="row">
+        <form action="{{ route('update_product', $product->id) }}" method="POST" enctype="multipart/form-data"
+            class="row">
             @csrf
             <div class="col-lg-9">
                 <div class="tab_content" id="anounce">
@@ -93,17 +94,19 @@
                             </div>
                         </div>
                         <div class="img_cards_container">
-                            @foreach ($product->detail_img as $detail_img)
-                                <div class="admin_part_img_card">
-                                    <div class="admin_part_img_card_img_container">
-                                        <img src="/storage/{{ $detail_img }}" class="admin_part_img_card_img">
+                            @if (!empty($product->detail_img))
+                                @foreach ($product->detail_img as $detail_img)
+                                    <div class="admin_part_img_card">
+                                        <div class="admin_part_img_card_img_container">
+                                            <img src="/storage/{{ $detail_img }}" class="admin_part_img_card_img">
+                                        </div>
+                                        <div style="padding: 1.5rem;">
+                                            <p class="admin_part_img_card_title">{{ $detail_img }}</p>
+                                            <button class="admin_part_img_card_img_delete_btn">Delete</button>
+                                        </div>
                                     </div>
-                                    <div style="padding: 1.5rem;">
-                                        <p class="admin_part_img_card_title">{{ $detail_img }}</p>
-                                        <button class="admin_part_img_card_img_delete_btn">Delete</button>
-                                    </div>
-                                </div>
-                            @endforeach
+                                @endforeach
+                            @endif
                         </div>
                     </div>
                     <input id="imageArray" type="hidden" name="image_array" value="">
@@ -128,12 +131,13 @@
                                 <label for="simpleinput" class="form-label">ID: {{ $product->id }}</label>
                             </div>
                             <div class="mb-3">
-                                <label for="simpleinput" class="form-label">Addet At: {{ $product->created_at->format('d.m.Y') }}</label>
+                                <label for="simpleinput" class="form-label">Addet At:
+                                    {{ $product->created_at->format('d.m.Y') }}</label>
                             </div>
                             <div class="mb-3">
                                 <label for="example-date" class="form-label">Start of publication
                                 </label>
-                                <input class="form-control" id="example-date" type="date" name="date" >
+                                <input class="form-control" id="example-date" type="date" name="date">
                             </div>
 
                             <div class="mb-3">
