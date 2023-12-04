@@ -1,6 +1,6 @@
 /* Переключает true/false в чекбоксах */
 
-var modal = document.querySelector('.admin_part_modal_table_settings');
+/* var modal = document.querySelector('.admin_part_modal_table_settings');
 
 if (modal) {
     var ul = modal.querySelector('ul');
@@ -60,3 +60,4 @@ if (modal) {
     });
 
 }
+ */

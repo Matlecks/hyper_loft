@@ -1,8 +1,3 @@
-{{-- @extends('admin_part.product_container')
-
-@section('table') --}}
-
-            {{-- catalog_categories --}}
             <tbody>
                 @foreach ($shops as $shop)
                     <tr>
@@ -49,5 +44,3 @@
                     </tr>
                 @endforeach
             </tbody>
-        
-{{-- @endsection --}}

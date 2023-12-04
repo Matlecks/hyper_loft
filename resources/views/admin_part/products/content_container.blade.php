@@ -32,16 +32,23 @@
             </div>
         </div>
         <div class="admin_part_info_paginate_setting_search">
-            <div class="admin_part_info_paginate_setting_left_part">
+            <form action="{{ route('set_pagination', $page = 'products') }}" method="POST" class="admin_part_info_paginate_setting_left_part">
+                @csrf
                 <span>Display</span>
-                <select class="admin_part_info_paginate_setting_select">
-                    <option>5</option>
-                    <option>10</option>
-                    <option>20</option>
-                    <option>All</option>
-                </select>
+                <div class="d-flex">
+                    <select class="admin_part_info_paginate_setting_select" name="pagination">
+                        <option value="5" {{ Cache::get('products_pagination') == 5 ? 'selected' : '' }}>5</option>
+                        <option value="10" {{ Cache::get('products_pagination') == 10 ? 'selected' : '' }}>10</option>
+                        <option value="50" {{ Cache::get('products_pagination') == 50 ? 'selected' : '' }}>50</option>
+                        <option value="all" {{ Cache::get('products_pagination') == 'all' ? 'selected' : '' }}>All
+                        </option>
+                    </select>
+                    <button class="set_paginate_btn" type="submit">SET</button>
+                </div>
                 <span>{{ strtolower($page_title) }}s</span>
-            </div>
+
+            </form>
+
             <div class="admin_part_info_paginate_setting_right_part">
                 <span>Search:</span>
                 <input type="text" class="admin_part_info_search">
@@ -202,6 +209,8 @@
                 @include('admin_part.products.product_table')
             </table>
         </div>
+        {{ $products->links() }}
+
     </div>
 
     {{-- Modals --}}
@@ -336,7 +345,7 @@
 
     {{-- modal import --}}
     <div class="modal fade admin_part_modal_table_settings" id="table_import_modal" tabindex="-1"
-        aria-labelledby="exampleModalLabel" {{-- style="display: block;" --}} aria-modal="true" role="dialog">
+        aria-labelledby="exampleModalLabel" aria-modal="true" role="dialog">
         <div class="modal-dialog modal-dialog-centered">
             <div class="modal-content">
                 <div class="admin_part_modal-header" style="border: none;">

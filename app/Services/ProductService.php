@@ -14,13 +14,28 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
 use Maatwebsite\Excel\Facades\Excel;
+use Illuminate\Support\Facades\Cache;
 
 class ProductService
 {
     public function getIndexProductsData()
     {
         $page_title = 'Product';
-        $products = Product::with('categories')->get();
+        $pagination = Cache::get('products_pagination');
+        $pagination = $pagination ? $pagination : 10;
+
+        $products = Product::with('categories')->paginate($pagination);
+
+        $pagination = Cache::get('products_pagination');
+
+        foreach ($products as $product) {
+            $productShop = ProductShop::where('product_id', $product->id)->get();
+            foreach ($productShop as $item) {
+                $product->cost = $item->cost;
+                $product->quantity = $item->quantity;
+            }
+        }
+
         $shops = Shop::all();
         $admin_menu_points = Admin_Menu::where('parent_id', '=', 1)->get();
         $all_categories = Catalog_Category::where('parent_id', '!=', 0)->get();
@@ -229,17 +244,30 @@ class ProductService
             $products = $products->sortBy('updated_at', SORT_REGULAR, $sortValue === 'asc');
         } elseif ($collumnName === 'category') {
             $products = $products->sortBy(function ($product) {
-                return $product->categories->first()->title;
+                $category = $product->categories->first();
+                return $category ? $category->title : '';
             }, SORT_REGULAR, $sortValue === 'asc');
         } elseif ($collumnName === 'cost') {
             $products = $products->sortBy(function ($product) {
-                return ProductShop::where('product_id', $product->id)->first()->cost;
+                $productShop = ProductShop::where('product_id', $product->id)->first();
+                return $productShop ? $productShop->cost : null;
             }, SORT_REGULAR, $sortValue === 'asc');
         } elseif ($collumnName === 'quantity') {
             $products = $products->sortBy(function ($product) {
-                return ProductShop::where('product_id', $product->id)->first()->quantity;
+                $productShop = ProductShop::where('product_id', $product->id)->first();
+                return $productShop ? $productShop->quantity : null;
             }, SORT_REGULAR, $sortValue === 'asc');
         }
+
+
+        foreach ($products as $product) {
+            $productShop = ProductShop::where('product_id', $product->id)->get();
+            foreach ($productShop as $item) {
+                $product->cost = $item->cost;
+                $product->quantity = $item->quantity;
+            }
+        }
+
         return [
             'products' => $products,
             'admin_menu_points' => $admin_menu_points,

@@ -1,5 +1,5 @@
-/*
-//Сортировка
+/* Сортировка */
+
 var table = document.querySelector('table');
 if (table) {
     var thead = table.querySelector('thead');
@@ -7,15 +7,6 @@ if (table) {
     var tr = thead.querySelector('tr');
     var ths = tr.querySelectorAll('th');
     var isFirstSvgClicked = true;
-
-    var currentURL = window.location.href;
-    var urlElements = currentURL.split('/');
-    var url_for_route = "";
-    if (urlElements[4] === "shop_list") {
-        url_for_route = "/admin/shop_list_sorted";
-    } else if (urlElements[4] === "index_products") {
-        url_for_route = "/admin/products/sort_products";
-    }
 
     ths.forEach(th => {
         th.addEventListener('click', () => {
@@ -44,7 +35,7 @@ if (table) {
             }
             isFirstSvgClicked = !isFirstSvgClicked;
             $.ajax({
-                url: 'http://hyperloft/admin/products/sort_products',
+                url: 'http://hyperloft/admin/shops/sort_shops',
                 type: 'POST',
                 dataType: 'json',
                 data: { collumn_name: idValue, sort_value: sortValue, _token: _token, },
@@ -57,4 +48,4 @@ if (table) {
         });
     });
 }
- */
+/*  */

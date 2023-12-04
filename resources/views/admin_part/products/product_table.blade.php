@@ -71,10 +71,12 @@
                 {{ $product->created_at->format('d/m/Y') }}
             </td>
             <td class="" style="width: 99px; padding-top: 2%;">
-                {{ $cost }}
+                {{-- {{ $cost }} --}}
+                {{ $product->cost }}
             </td>
             <td class="" style="width: 127px; padding-top: 2%;">
-                {{ $quantity }}
+                {{-- {{ $quantity }} --}}
+                {{ $product->quantity }}
             </td>
             <td class="" style="width: 102px; padding-top: 2%;">
                 @if ($product->deleted_at)

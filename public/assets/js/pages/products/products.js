@@ -1,5 +1,5 @@
-/*
-//Сортировка
+/* Сортировка */
+
 var table = document.querySelector('table');
 if (table) {
     var thead = table.querySelector('thead');
@@ -57,4 +57,4 @@ if (table) {
         });
     });
 }
- */
+/*  */

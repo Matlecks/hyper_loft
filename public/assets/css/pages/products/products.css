@@ -1,0 +1,68 @@
+.pagination_wrapper {
+    width: 100%;
+    padding: 0px 25px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-bottom: 25px;
+}
+
+.pagination_custom {
+    width: fit-content;
+    display: flex;
+    gap: 5px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.pagination_wrapper .info {
+    width: fit-content;
+}
+
+.page-item {
+    width: 32px;
+    height: 32px;
+    border-radius: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.page-item.active {
+    background: #727CF5;
+    color: #fff;
+}
+
+.page-item.disabled {
+    color: #9198A1;
+}
+
+.page-item:hover {
+    background: #F6F7FB;
+    color: #6169D0;
+}
+
+.page-item.active:hover {
+    background: #727CF5;
+    color: #fff;
+}
+
+.admin_part_info_paginate_setting_left_part {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.set_paginate_btn {
+    color: #fff;
+    background: #727CF5;
+    border: none;
+    border-radius: 0rem 0.2rem 0.2rem 0rem;
+    font-family: "Nunito", sans-serif;
+    font-size: 14.4px;
+    font-weight: 400;
+    line-height: 21.6px;
+    box-shadow: 0px 2px 6px 0px #727CF5FF;
+    padding: 0.25rem 0.9rem 0.25rem 0.9rem;
+}

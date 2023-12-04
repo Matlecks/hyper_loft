@@ -8,7 +8,7 @@ use App\Http\Controllers\MailController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\SearchController;
 use App\Http\Controllers\UserController;
-
+use App\Services\PaginationService;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -52,6 +52,9 @@ Route::group(['prefix' => 'admin'/* , 'middleware' => 'auth' */], function () {
         Route::get('/export', [ProductController::class, 'export'])->name('products_export');
 
         Route::post('/import_{id}', [ProductController::class, 'import'])->name('products_import');
+
+/*         Route::post('/set_pagination', [ProductController::class, 'set_pagination'])->name('set_pagination');
+ */
     });
 
     Route::group(['prefix' => 'shops'], function () {
@@ -155,4 +158,7 @@ Route::group(['prefix' => 'admin'/* , 'middleware' => 'auth' */], function () {
 
 
     });
+
+    Route::post('/set_pagination_{page}', [PaginationService::class, 'setPagination'])->name('set_pagination');
+
 });

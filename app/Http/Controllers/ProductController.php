@@ -1,11 +1,15 @@
 <?php
+
 namespace App\Http\Controllers;
+
 use Illuminate\Http\Request;
 use App\Exports\ProductsExport;
 use Maatwebsite\Excel\Facades\Excel;
 use App\Services\ProductService;
+use Illuminate\Http\JsonResponse;
 use Illuminate\View\View;
 use Symfony\Component\HttpFoundation\BinaryFileResponse;
+use Illuminate\Support\Facades\Cache;
 
 class ProductController extends Controller
 {
@@ -28,7 +32,7 @@ class ProductController extends Controller
         return view('admin_part.products.content_container', $data);
     }
 
-    public function sort_products(Request $request): \Illuminate\Http\JsonResponse
+    public function sort_products(Request $request): JsonResponse
     {
         $data = $this->productService->sortProducts($request);
         return response()->json([
@@ -80,5 +84,13 @@ class ProductController extends Controller
     {
         $this->productService->importData($request, $id);
         return redirect()->back()->with('success', 'Импорт успешно выполнен');
+    }
+
+    public function set_pagination(Request $request)
+    {
+        $pagination = $request->input('pagination');
+        Cache::put('products_pagination', $pagination);
+
+        return redirect()->route('index_products');
     }
 }

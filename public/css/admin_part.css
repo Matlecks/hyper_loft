@@ -260,8 +260,6 @@
     color: #6C757DFF;
 }
 
-.admin_part_info_paginate_setting_left_part {}
-
 .admin_part_info_paginate_setting_select {
     height: 32px;
     width: 75px;
@@ -269,8 +267,7 @@
     padding-bottom: .28rem;
     padding-left: .8rem;
     font-size: .875rem;
-    border-radius: .2rem;
-    margin: 0px 10px 0px 10px;
+    border-radius: 0.2rem 0rem 0rem 0.2rem;
     background: #fff;
     border: 1px solid #dee2e6;
 }
@@ -668,7 +665,6 @@
     border: none;
     border-radius: 2.4px;
     color: #fff;
-    padding: ;
     box-shadow: rgba(250, 92, 124, 0.5) 0px 2px 6px 0px;
     font-family: Nunito, sans-serif;
     font-size: 14.4px;
