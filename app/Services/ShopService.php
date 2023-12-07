@@ -6,6 +6,7 @@ use App\Models\Shop;
 use App\Models\Admin_Menu;
 use App\Models\Catalog_Category;
 use Illuminate\View\View;
+use Illuminate\Http\Request;
 
 class ShopService
 {
@@ -35,4 +36,52 @@ class ShopService
             'page_title' => $page_title,
         ];
     }
+
+    public function getCreateShopData()
+    {
+        $page_title = 'Add Shop';
+        $table_name = 'shops';
+        /* $categories = Catalog_Category::all(); */
+        $admin_menu_points = Admin_Menu::where('parent_id', '=', 1)->get();
+
+        return compact('page_title', 'admin_menu_points', /* 'categories' */);
+    }
+
+    public function storeShop(Request $request)
+    {
+        $shop = new Shop();
+        $shop->title = $request->title;
+        $shop->symbolic_code = $request->symbolic_code;
+        $shop->adress = $request->adress;
+        $shop->phone = $request->phone;
+        $shop->email = $request->email;
+        $shop->schedule = $request->schedule;
+        $shop->pay_variables = $request->pay_variables;
+
+        if ($request->hasFile('anounce_img')) {
+            $shop->anounce_img = $request->anounce_img->storeAs('/', $request->anounce_img->getClientOriginalName(), 'public');
+        }
+
+        $shop->anounce_text = $request->anounce_text;
+
+        if ($request->hasFile('detail_img')) {
+            $detailImgNames = [];
+
+            foreach ($request->detail_img as $detailImg) {
+                $detailImgNames[] = $detailImg->getClientOriginalName();
+                $detailImg->storeAs('/', $detailImg->getClientOriginalName(), 'public');
+            }
+
+            $shop->detail_img = json_encode($detailImgNames);
+        }
+
+        $shop->detail_text = $request->detail_text;
+        $shop->save();
+
+/*         $category = Catalog_Category::where('symbolic_code', $request->category)->first();
+        $shop->categories()->attach($category);
+ */
+        return redirect()->route('index_shops');
+    }
+
 }

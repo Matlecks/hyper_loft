@@ -30,4 +30,19 @@ class ShopController extends Controller
             'html' => view('admin_part.shops.shop_table', $data)->render()
         ]);
     }
+
+    public function create_shop(): View
+    {
+        $data = $this->shopService->getCreateShopData();
+        return view('admin_part.shops.add_page', $data);
+    }
+
+    public function store_shop(Request $request)
+    {
+        $this->shopService->storeShop($request);
+        return redirect()->route('index_shops');
+    }
+
+
+
 }

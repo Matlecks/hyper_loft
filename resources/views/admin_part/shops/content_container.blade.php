@@ -4,7 +4,7 @@
     <div class="admin_part_info_container" style="min-height: 300px;">
         <div class="admin_part_info_btns">
             <div class="admin_part_info_btns_left_part">
-                <a href="{{ route('create_product') }}" class="admin_part_add_btn text-decoration-none">
+                <a href="{{ route('create_shop') }}" class="admin_part_add_btn text-decoration-none">
                     <span>
                         <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" fill="currentColor"
                             class="bi bi-plus-circle-fill" viewBox="0 0 16 16">
