@@ -30,17 +30,22 @@
                                 Active
                             @endif
                         </td>
-                        <td class=""
-                            style="padding-top: 2%; padding-left: 1px; padding-right: 5px; max-width: 10px !important;">
-                            <span>
-                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="#6C757DFF"
-                                    class="bi bi-list" viewBox="0 0 16 16">
-                                    <path fill-rule="evenodd"
-                                        d="M2.5 12a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5z">
-                                    </path>
-                                </svg>
-                            </span>
-                        </td>
-                    </tr>
+                        <td class="{{-- btn-group dropstart --}}"
+                        style="padding-top: 2%; padding-left: 1px; padding-right: 5px; max-width: 10px !important;">
+                        <button type="button" data-bs-toggle="dropdown" aria-expanded="false"
+                            style="border: none;background: none;">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="#6C757DFF"
+                                class="bi bi-list" viewBox="0 0 16 16">
+                                <path fill-rule="evenodd"
+                                    d="M2.5 12a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5z">
+                                </path>
+                            </svg>
+                        </button>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="{{ route('edit_shop', $shop->id) }}">Edit</a></li>
+                            <li><a class="dropdown-item" href="#">Delete</a></li>
+                        </ul>
+                    </td>
+                            </tr>
                 @endforeach
             </tbody>

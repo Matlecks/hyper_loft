@@ -43,6 +43,17 @@ class ShopController extends Controller
         return redirect()->route('index_shops');
     }
 
+    public function edit_shop($id): View
+    {
+        $data = $this->shopService->getEditShopData($id);
+        return view('admin_part.shops.edit_page', $data);
+    }
+
+    public function update_shop(Request $request, $id)
+    {
+        $this->shopService->updateShop($request, $id);
+        return redirect()->route('index_shops');
+    }
 
 
 }

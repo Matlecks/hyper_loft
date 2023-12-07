@@ -67,6 +67,10 @@ Route::group(['prefix' => 'admin'/* , 'middleware' => 'auth' */], function () {
 
         Route::post('/store_shop', [ShopController::class, 'store_shop'])->name('store_shop'); // добавить магазин
 
+        Route::get('/edit_shop_{id}', [ShopController::class, 'edit_shop'])->name('edit_shop'); // страница редактирования магазина
+
+        Route::post('/update_shop_{id}', [ShopController::class, 'update_shop'])->name('update_shop'); // обновить магазин
+
     });
 
     Route::group(['prefix' => 'mail'/* , 'middleware' => 'auth' */], function () {
