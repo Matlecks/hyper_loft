@@ -95,14 +95,21 @@
                         <div class="mb-3">
                             <label for="example-select" class="form-label">Models for indexation</label>
                             <select class="form-select" multiple id="example-select" name="identificator[]">
-                                @foreach ($selected_models_of_admin_settings as $selected_model_of_admin_settings)
-                                    <option value="{{ $selected_model_of_admin_settings }}" selected>
-                                        {{ $selected_model_of_admin_settings }}</option>
-                                @endforeach
-                                @foreach ($unselected_models_of_admin_settings as $unselected_model_of_admin_settings)
-                                    <option value="{{ $selected_model_of_admin_settings }}">
-                                        {{ $selected_model_of_admin_settings }}</option>
-                                @endforeach
+                                @if (!empty($selected_models_of_admin_settings) || !empty($unselected_models_of_admin_settings))
+                                    @foreach ($selected_models_of_admin_settings as $selected_model_of_admin_settings)
+                                        <option value="{{ $selected_model_of_admin_settings }}" selected>
+                                            {{ $selected_model_of_admin_settings }}</option>
+                                    @endforeach
+                                    @foreach ($unselected_models_of_admin_settings as $unselected_model_of_admin_settings)
+                                        <option value="{{ $selected_model_of_admin_settings }}">
+                                            {{ $selected_model_of_admin_settings }}</option>
+                                    @endforeach
+                                @else
+                                    @foreach ($models_for_indexation as $model_for_indexation)
+                                        <option value="{{ $model_for_indexation }}">
+                                            {{ $model_for_indexation }}</option>
+                                    @endforeach
+                                @endif
                             </select>
                         </div>
                         <div class="form-check">
@@ -116,10 +123,15 @@
                             <label for="example-select" class="form-label">Sort results by
                             </label>
                             <select class="form-select" multiple="" id="example-select" name="sort">
-                                <option value="{{ $selected_sort_value }}" selected>{{ $selected_sort_value }}</option>
-                                @foreach ($unselected_sort_values as $unselected_sort_value)
-                                    <option value="{{ $unselected_sort_value }}">{{ $unselected_sort_value }}</option>
-                                @endforeach
+                                @if (!empty($unselected_sort_values))
+                                    <option value="{{ $selected_sort_value }}" selected>{{ $selected_sort_value }}</option>
+                                    @foreach ($unselected_sort_values as $unselected_sort_value)
+                                        <option value="{{ $unselected_sort_value }}">{{ $unselected_sort_value }}</option>
+                                    @endforeach
+                                @else
+                                    <option value="ascending">Ascending</option>
+                                    <option value="descending">Descending</option>
+                                @endif
                             </select>
                         </div>
 
@@ -127,7 +139,8 @@
                         <button type="submit" class="indexsation_btn">Save Settings</button>
                     </form>
 
-                    <form class="reindex_form" action="{{ route('reindex_admin_search', $name_reindex_form = "admin") }}" method="POST">
+                    <form class="reindex_form" action="{{ route('reindex_admin_search', $name_reindex_form = 'admin') }}"
+                        method="POST">
                         @csrf
                         <button type="submit" class="reindex_btn">Reindex</button>
                     </form>

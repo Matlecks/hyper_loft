@@ -164,6 +164,7 @@ Route::group(['prefix' => 'admin'/* , 'middleware' => 'auth' */], function () {
 
         Route::post('/reindex_admin_search_{name_reindex_form}', [SearchController::class, 'reindex_admin_search'])->name('reindex_admin_search'); // обновить настройку поиска
 
+        Route::post('/search', [SearchController::class, 'search'])->name('search'); // поиск по данным из бд
 
     });
 

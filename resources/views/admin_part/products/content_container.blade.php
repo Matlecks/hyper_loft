@@ -32,7 +32,8 @@
             </div>
         </div>
         <div class="admin_part_info_paginate_setting_search">
-            <form action="{{ route('set_pagination', $page = 'products') }}" method="POST" class="admin_part_info_paginate_setting_left_part">
+            <form action="{{ route('set_pagination', $page = 'products') }}" method="POST"
+                class="admin_part_info_paginate_setting_left_part">
                 @csrf
                 <span>Display</span>
                 <div class="d-flex">
@@ -51,8 +52,50 @@
 
             <div class="admin_part_info_paginate_setting_right_part">
                 <span>Search:</span>
-                <input type="text" class="admin_part_info_search">
+                <form action="{{ route('search') }}" method="POST" class="search_form">
+                    @csrf
+                    <div class="dropdown">
+                        <input type="text" class="admin_part_info_search">
+                        <div class="dropdown-menu search_results_container"></div>
+                    </div>
+                </form>
             </div>
+            <script>
+                // Получение формы и элементов формы
+                var form = document.querySelector('.search_form');
+                var search_key = form.querySelector('.admin_part_info_search');
+                var search_key_value = form.querySelector('.admin_part_info_search').value;
+                var button = form.querySelector('button');
+                var _token = form.querySelector('input[name="_token"]').value;
+                var result_container = form.querySelector('.dropdown-menu.search_results_container');
+
+                // Обработчик события отправки формы
+                search_key.addEventListener('keyup', function(e) {
+                    e.preventDefault(); // Отменяем стандартное поведение формы
+                    $.ajax({
+                        url: 'http://hyperloft/admin/search/search',
+                        type: 'POST',
+                        dataType: 'json',
+                        data: {
+                            search_key: search_key_value,
+                            _token: _token,
+                        },
+                        success: function(response) {
+                            if (response.success) {
+                                result_container.style.display = 'block';
+                                result_container.innerHTML = response.html;
+                            }
+                        }
+                    });
+                });
+
+                // Обработчик события клика на документе
+                document.addEventListener('click', function(e) {
+                    if (!result_container.contains(e.target)) {
+                        result_container.style.display = 'none';
+                    }
+                });
+            </script>
         </div>
 
         <div class="admin_part_table_container">
@@ -100,8 +143,8 @@
                                         </svg>
                                     </span>
                                     <span class="w-100">
-                                        <svg xmlns="http://www.w3.org/2000/svg" width="8" height="8" fill="#B6BBC2"
-                                            class="bi bi-caret-down-fill" viewBox="0 0 16 16">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="8" height="8"
+                                            fill="#B6BBC2" class="bi bi-caret-down-fill" viewBox="0 0 16 16">
                                             <path
                                                 d="M7.247 11.14 2.451 5.658C1.885 5.013 2.345 4 3.204 4h9.592a1 1 0 0 1 .753 1.659l-4.796 5.48a1 1 0 0 1-1.506 0z" />
                                         </svg>

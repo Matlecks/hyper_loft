@@ -14,6 +14,8 @@ return new class extends Migration
         Schema::create('search_indixes', function (Blueprint $table) {
             $table->id();
             $table->string('search_key')->nullable();
+            $table->integer('item_id')->nullable();
+            $table->text('url')->nullable();
             $table->json('tags')->nullable();
             $table->string('table')->nullable();
             $table->timestamps();

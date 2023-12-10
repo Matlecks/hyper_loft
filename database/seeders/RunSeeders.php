@@ -26,7 +26,6 @@ class RunSeeders extends Seeder
         $this->call(Products_Categories_Relations_Seeders::class);
         $this->call(ShopsSeeders::class);
         $this->call(Shops_Product_Relations_Seeders::class);
-        $this->call(TablesSettingsSeeders::class);
         $this->call(MailSeeder::class);
         User::factory()->count(10)->create();
     }

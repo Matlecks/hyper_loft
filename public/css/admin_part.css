@@ -273,11 +273,13 @@
 }
 
 .admin_part_info_paginate_setting_right_part {
+    display: flex;
     font-family: "Nunito", sans-serif;
     font-size: 14.4px;
     font-weight: 400;
     line-height: 21.6px;
     color: #6C757DFF;
+    gap: 10px;
 }
 
 .admin_part_info_search {
@@ -289,6 +291,44 @@
     outline-offset: 0px;
     outline: none;
     color: #6C757DFF;
+}
+
+.search_results_container {
+    width: 208px;
+    height: fit-content;
+    padding: .25rem;
+    font-size: .875rem;
+    border-radius: 0.25rem;
+    background: #fff;
+    border: 1px solid #DEE2E6;
+    margin-top: 4px;
+    box-shadow: 0 0px 35px 0px rgba(154, 161, 171, 0.15);
+}
+
+.search_results_container ul {
+    list-style: none;
+    padding: 0px;
+    width: 100%;
+}
+
+.search_results_container ul li {
+    padding: .25rem;
+    padding-left: .5rem;
+    border-radius: 0.125rem;
+}
+
+.search_results_container ul li:hover {
+    background: #dee2e6;
+}
+
+.search_results_container ul li a {
+    width: 100%;
+    height: 100%;
+    display: block;
+    text-decoration: none;
+    color: #6C757DFF;
+    font-size: .875rem;
+    font-weight: 400;
 }
 
 /* Контейнер таблиц */
